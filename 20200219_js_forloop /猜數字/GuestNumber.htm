@@ -1,0 +1,53 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<title>猜數字遊戲</title>
+</head>
+<script>
+var i = 0;
+var j = 0;
+function reset() {
+i = Math.floor((Math.random() * 100) + 1);
+document.getElementById("set_number").value=i;
+document.getElementById("set_number").style.display='none';
+//alert(i);
+j = 1;
+}
+function check() {
+    document.getElementById("set_number").style.display='block';
+}
+function number() {
+var guest_number=document.getElementById("answer").value;
+if( j == 0 ){
+alert("Please set number first!!!");
+}
+else if( guest_number> 100 || guest_number < 0 ){
+alert("The Range is 1 - 100 !");
+}
+else if(guest_number == i ){
+alert("BINGO~~~~~");
+}
+else if(guest_number > i ){
+alert("TOO BIGGGGGG!");
+}
+else if(guest_number < i ){
+alert("too small...");
+}
+else{
+alert("ERROR");
+}
+}
+</script>
+<body>
+
+<button onclick="reset()">SET NUMBER</button>　
+<input id="set_number" type="number" style="display: none" ></input>
+</br>
+<button onclick="check()">檢查數字</button>
+</br>　
+<input id="answer"></input>　　
+</br>　
+<button onclick="number()">Submit</button>
+
+</body>
+</html>
